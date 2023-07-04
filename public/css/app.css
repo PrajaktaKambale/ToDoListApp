@@ -14,3 +14,15 @@
 .add-todo textarea {
   resize: none;
 }
+
+.items-list {
+  padding: 10px;
+  background-color: paleturquoise;
+  padding-top: 20px;
+}
+
+.footer {
+  text-align: center;
+  position: fixed;
+  bottom: 5px;
+}
