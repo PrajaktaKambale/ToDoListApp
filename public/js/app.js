@@ -1,128 +1,56 @@
 "use strict";
 
-var items = [];
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var markItemComplete = function markItemComplete(itemToRemove) {
-  //   //remove the item from items array
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-  //method1
-  //   for (let index = 0; index < items.length; index++) {
-  //     const item = items[index];
-  //     if (item.id == itemToRemove.id) {
-  //       //found the item to be deleted
-  //       items.splice(index, 1);
-  //       break;
-  //     }
-  //   }
+//class
+//Person -> name,address,phone
 
-  //method 2
-  items = items.filter(function (item) {
-    return item.id != itemToRemove.id;
-  });
+var Person = function () {
+  //add cnstructor in js
 
-  render();
-};
+  //name
+  //address
+  //phone
 
-var addItem = function addItem(e) {
-  var title = e.target.elements.itemtext.value;
-  items.push({
-    id: items.length + 1,
-    status: "open",
-    title: title
-  });
+  //to initialize the object
+  function Person(name, address, phone, age) {
+    _classCallCheck(this, Person);
 
-  //clear the input
-  e.target.elements.itemtext.value = "";
-  e.preventDefault();
+    console.log("inside  person constructor");
+    this.name = name;
+    this.address = address;
+    this.phone = phone;
+    this.age = age;
+  }
 
-  render();
-};
+  //method
 
-var render = function render() {
-  var template = React.createElement(
-    "div",
-    null,
-    React.createElement(
-      "div",
-      { className: "title" },
-      React.createElement(
-        "h2",
-        null,
-        "ToDo App"
-      ),
-      React.createElement(
-        "p",
-        null,
-        "what do you want to do today?"
-      )
-    ),
-    React.createElement(
-      "div",
-      { className: "add-todo" },
-      React.createElement(
-        "form",
-        { onSubmit: addItem },
-        React.createElement(
-          "div",
-          { className: "input-group mb-3" },
-          React.createElement("textarea", {
-            className: "form-control",
-            placeholder: "enter your todo here",
-            name: "itemtext",
-            rows: "3"
-          }),
-          React.createElement(
-            "button",
-            {
-              className: "btn btn-success",
-              type: "submit",
-              id: "button-addon2"
-            },
-            "Add"
-          )
-        )
-      )
-    ),
-    items.length > 0 && React.createElement(
-      "div",
-      { className: "items-list" },
-      items.map(function (item) {
-        return React.createElement(
-          "div",
-          { className: "input-group mb-3" },
-          React.createElement("input", {
-            readOnly: true,
-            value: item.title,
-            className: "form-control",
-            type: "text",
-            rows: "3"
-          }),
-          React.createElement(
-            "button",
-            {
-              onClick: function onClick() {
-                markItemComplete(item);
-              },
-              className: "btn btn-danger",
-              type: "button",
-              id: "button-addon2"
-            },
-            "Complete"
-          )
-        );
-      })
-    ),
-    React.createElement(
-      "div",
-      { className: "footer" },
-      React.createElement(
-        "p",
-        null,
-        "copyrighted to praj"
-      )
-    )
-  );
 
-  ReactDOM.render(template, document.getElementById("app"));
-};
-render();
+  _createClass(Person, [{
+    key: "printInfo",
+    value: function printInfo() {
+      console.log("name:" + this.name);
+      console.log("address:" + this.address);
+      console.log("phone:" + this.phone);
+    }
+  }, {
+    key: "getDescription",
+    value: function getDescription() {
+      console.log(this.name + " is of " + this.age + " years old and he lives in " + this.address);
+    }
+  }]);
+
+  return Person;
+}();
+
+var p = new Person("person1", "pune", "+91233", 20);
+p.printInfo();
+p.getDescription();
+// class Mobile {
+//   constructor() {
+//     console.log("inside mobile constructor");
+//   }
+// }
+// const m = new Mobile();
