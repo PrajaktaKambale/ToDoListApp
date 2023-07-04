@@ -1,0 +1,16 @@
+.title {
+  text-align: center;
+  height: 80px;
+  padding: 10px;
+  background-color: cornflowerblue;
+  color: white;
+}
+
+.add-todo {
+  padding: 10px;
+  background-color: floralwhite;
+}
+
+.add-todo textarea {
+  resize: none;
+}
